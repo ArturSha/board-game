@@ -1,0 +1,11 @@
+.gameBoard {
+    display: grid;
+    grid-template-areas: 
+                            'square10 square11 square12 square13 square14 square15 square16'
+                            'square9 square26 square27 square28 square29 square30 square17' 
+                            'square8 square25 square31 square31 square31 square30 square18'
+                            'square7 square24 square23 square22 square21 square20 square19' 
+                            'square6 square5 square4 square3 square2 square1 square0';
+                            grid-template-columns: repeat(7, 1fr);
+                            grid-template-rows: repeat(5, var(--square-height));                                                
+                        } 

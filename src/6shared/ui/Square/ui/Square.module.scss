@@ -1,0 +1,429 @@
+.square {
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 4px 4px 8px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.picture {
+    width: 70%;
+    height: 70%;
+}
+
+.square0 {
+    grid-area: square0;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square1 {
+    grid-area: square1;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square2 {
+    grid-area: square2;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square3 {
+    grid-area: square3;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square4 {
+    grid-area: square4;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square5 {
+    grid-area: square5;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square6 {
+    grid-area: square6;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        top: 0;
+        right: 0;
+        background: linear-gradient(45deg, rgb(255, 255, 255) 50%, rgb(46, 46, 46) 94%);
+    }
+}
+
+.square7 {
+    grid-area: square7;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square8 {
+    grid-area: square8;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square9 {
+    grid-area: square9;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square10 {
+    grid-area: square10;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        bottom: 0;
+        right: 0;
+        transform: rotate(180deg);
+        background: rgb(255, 255, 255);
+        background: linear-gradient(315deg, rgb(255, 255, 255) 40%, rgb(46, 46, 46) 94%);
+    }
+}
+
+.square11 {
+    grid-area: square11;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square12 {
+    grid-area: square12;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square13 {
+    grid-area: square13;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square14 {
+    grid-area: square14;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square15 {
+    grid-area: square15;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square16 {
+    grid-area: square16;
+    &::before {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        bottom: 0;
+        left: 0;
+        transform: rotate(270deg);
+        background: linear-gradient(315deg, rgb(255, 255, 255) 40%, rgb(46, 46, 46) 94%);
+    }
+}
+
+.square17 {
+    grid-area: square17;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square18 {
+    grid-area: square18;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square19 {
+    grid-area: square19;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        top: 0;
+        left: 0;
+        background: linear-gradient(315deg, rgb(255, 255, 255) 40%, rgb(46, 46, 46) 94%);
+    }
+}
+
+.square20 {
+    grid-area: square20;
+    &::after {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square21 {
+    grid-area: square21;
+    &::after {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square22 {
+    grid-area: square22;
+    &::after {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square23 {
+    grid-area: square23;
+    &::after {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    top: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square24 {
+    grid-area: square24;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        top: 0;
+        right: 0;
+        background: linear-gradient(45deg, rgb(255, 255, 255) 50%, rgb(46, 46, 46) 94%);
+    }
+}
+
+.square25 {
+    grid-area: square25;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+    
+}
+
+.square26 {
+    grid-area: square26;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        bottom: 0;
+        right: 0;
+        transform: rotate(180deg);
+        background: rgb(255, 255, 255);
+        background: linear-gradient(315deg, rgb(255, 255, 255) 40%, rgb(46, 46, 46) 94%);
+    }
+}
+
+.square27 {
+    grid-area: square27;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square28 {
+    grid-area: square28;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square29 {
+    grid-area: square29;
+    &::before {
+        content: '';
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    bottom: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
+    }
+}
+
+.square30 {
+    grid-area: square30;
+}
+
+.square31 {
+    grid-area: square31;
+}
+
