@@ -1,11 +1,9 @@
-import { GameBoard } from 'src/5entities/GameBoard';
-import { TestCounter } from 'src/5entities/TestCounter/TestCounter';
+import { MainPage } from 'src/2pages/MainPage/ui/MainPage';
 
 function App() {
   return (
     <div className='app'>
-      <GameBoard />
-      <TestCounter />
+      <MainPage />
     </div>
   );
 }

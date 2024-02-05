@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterSlice from 'src/5entities/TestCounter/counterSlice';
+import { settingsReducer } from 'src/5entities/SettingsPanel';
 
 export const store = configureStore({
   reducer: {
-    counterSlice: counterSlice,
+    settingsSlice: settingsReducer,
   },
 });
 export type RootState = ReturnType<typeof store.getState>;

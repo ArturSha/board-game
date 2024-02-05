@@ -1,7 +1,13 @@
 @import url(./reset.scss);
 @import url(./variables//global.scss);
 
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 .app {
+  max-width: 1480px;
   width: 100%;
-  padding: 8px;
+
 }

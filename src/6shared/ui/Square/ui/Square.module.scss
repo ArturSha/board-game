@@ -19,13 +19,100 @@
     height: 70%;
 }
 
+.piece {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.piecePosition0 {
+    bottom: 2px;
+    left: 2px;
+}
+
+.piecePosition1 {
+    bottom: 18px;
+    left: 2px;
+}
+
+.piecePosition2 {
+    bottom: 34px;
+    left: 2px;
+}
+
+.piecePosition3 {
+    bottom: 50px;
+    left: 2px;
+}
+
+.piecePosition4 {
+    bottom: 2px;
+    left: 18px;
+}
+
+.piecePosition5 {
+    bottom: 18px;
+    left: 18px;
+}
+
+.piecePosition6 {
+    bottom: 34px;
+    left: 18px;
+}
+
+.piecePosition7 {
+    bottom: 50px;
+    left: 18px;
+}
+
+.piecePosition8 {
+    bottom: 2px;
+    right: 2px;
+}
+
+.piecePosition9 {
+    bottom: 18px;
+    right: 2px;
+}
+
+.piecePosition10 {
+    bottom: 34px;
+    right: 2px;
+}
+
+.piecePosition11 {
+    bottom: 50px;
+    right: 2px;
+}
+
+.piecePosition12 {
+    bottom: 2px;
+    right: 18px;
+}
+
+.piecePosition13 {
+    bottom: 18px;
+    right: 18px;
+}
+
+.piecePosition14 {
+    bottom: 34px;
+    right: 18px;
+}
+
+.piecePosition15 {
+    bottom: 50px;
+    right: 18px;
+}
+
 .square0 {
     grid-area: square0;
     &::before {
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -38,7 +125,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -51,7 +138,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -64,7 +151,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -77,7 +164,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -90,7 +177,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -102,8 +189,8 @@
     &::before {
         content: "";
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: var(--guiderail-height);
+        height: var(--guiderail-height);
         top: 0;
         right: 0;
         background: linear-gradient(45deg, rgb(255, 255, 255) 50%, rgb(46, 46, 46) 94%);
@@ -115,7 +202,7 @@
     &::before {
         content: '';
     position: absolute;
-    width: 8px;
+    width: var(--guiderail-height);
     height: 100%;
     top: 0;
     right: 0;
@@ -129,7 +216,7 @@
     &::before {
         content: '';
     position: absolute;
-    width: 8px;
+    width: var(--guiderail-height);
     height: 100%;
     top: 0;
     right: 0;
@@ -143,7 +230,7 @@
     &::before {
         content: '';
     position: absolute;
-    width: 8px;
+    width: var(--guiderail-height);
     height: 100%;
     top: 0;
     right: 0;
@@ -157,8 +244,8 @@
     &::before {
         content: "";
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: var(--guiderail-height);
+        height: var(--guiderail-height);
         bottom: 0;
         right: 0;
         transform: rotate(180deg);
@@ -173,7 +260,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -186,7 +273,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -199,7 +286,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -212,7 +299,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -225,7 +312,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -237,8 +324,8 @@
     &::before {
         content: "";
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: var(--guiderail-height);
+        height: var(--guiderail-height);
         bottom: 0;
         left: 0;
         transform: rotate(270deg);
@@ -251,7 +338,7 @@
     &::before {
         content: '';
     position: absolute;
-    width: 8px;
+    width: var(--guiderail-height);
     height: 100%;
     top: 0;
     left: 0;
@@ -264,7 +351,7 @@
     &::before {
         content: '';
     position: absolute;
-    width: 8px;
+    width: var(--guiderail-height);
     height: 100%;
     top: 0;
     left: 0;
@@ -277,8 +364,8 @@
     &::after {
         content: "";
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: var(--guiderail-height);
+        height: var(--guiderail-height);
         top: 0;
         left: 0;
         background: linear-gradient(315deg, rgb(255, 255, 255) 40%, rgb(46, 46, 46) 94%);
@@ -291,7 +378,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -304,7 +391,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -317,7 +404,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -330,7 +417,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     top: 0;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -342,8 +429,8 @@
     &::after {
         content: "";
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: var(--guiderail-height);
+        height: var(--guiderail-height);
         top: 0;
         right: 0;
         background: linear-gradient(45deg, rgb(255, 255, 255) 50%, rgb(46, 46, 46) 94%);
@@ -355,7 +442,7 @@
     &::before {
         content: '';
     position: absolute;
-    width: 8px;
+    width: var(--guiderail-height);
     height: 100%;
     top: 0;
     right: 0;
@@ -370,8 +457,8 @@
     &::after {
         content: "";
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: var(--guiderail-height);
+        height: var(--guiderail-height);
         bottom: 0;
         right: 0;
         transform: rotate(180deg);
@@ -386,7 +473,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -399,7 +486,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);
@@ -412,7 +499,7 @@
         content: '';
     position: absolute;
     width: 100%;
-    height: 8px;
+    height: var(--guiderail-height);
     bottom: 0;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(46,46,46,1) 100%);

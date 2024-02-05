@@ -1,0 +1,15 @@
+.button {
+    background: lightgreen;
+    border: 2px solid lightskyblue;
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    &:hover {
+        opacity: .9;
+        cursor: pointer;
+    }
+}
+
+.btnStart {
+    margin-top: 8px;
+}
