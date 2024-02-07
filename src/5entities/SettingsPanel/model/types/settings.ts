@@ -13,6 +13,5 @@ export interface Player {
   color: string;
   cups: number;
   isActive: boolean;
+  id: number;
 }
-
-export type PlayerOrEmptyString = Player | 'empty';

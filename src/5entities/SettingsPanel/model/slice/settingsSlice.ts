@@ -22,9 +22,9 @@ export const settingsSlice = createSlice({
     setPlayers: (state, action: PayloadAction<Array<Player>>) => {
       const newPlayer = action.payload.map((el, i) => {
         if (i === 0) {
-          return { ...el, isActive: true, position: 0 };
+          return { ...el, isActive: true, position: 0, name: el.name.trim() };
         }
-        return { ...el, isActive: false, position: 0 };
+        return { ...el, isActive: false, position: 0, name: el.name.trim() };
       });
       state.players = newPlayer;
 
@@ -33,6 +33,30 @@ export const settingsSlice = createSlice({
     setGameReset: (state) => {
       state.started = false;
       state.players = [];
+    },
+    setPosition: (state, action: PayloadAction<Array<Player>>) => {
+      const updatedPlayer = action.payload[0];
+      const currentPlayerIndex = state.players.findIndex(
+        (player) => player.id === updatedPlayer.id
+      );
+
+      const nextPlayerIndex =
+        currentPlayerIndex + 1 >= state.players.length
+          ? 0
+          : currentPlayerIndex + 1;
+
+      state.players = state.players.map((player, index) => {
+        if (index === nextPlayerIndex) {
+          return { ...player, isActive: true };
+        } else if (index === currentPlayerIndex) {
+          return {
+            ...player,
+            isActive: false,
+            position: updatedPlayer.position,
+          };
+        }
+        return player;
+      });
     },
   },
 });

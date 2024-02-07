@@ -14,7 +14,6 @@ import {
 } from '..';
 import { getStarted } from '../model/selectors/getStarted/getStarted';
 import cls from './SettingsPanel.module.scss';
-import type { PlayerOrEmptyString } from '../model/types/settings';
 
 export const SettingsPanel = memo(() => {
   const [active, setActive] = useState<boolean>(false);
@@ -25,6 +24,7 @@ export const SettingsPanel = memo(() => {
       position: 0,
       cups: 0,
       isActive: false,
+      id: 0,
     },
   ]);
   const numberOfPlayers = useAppSelector(getNumbOfPlayers);
@@ -36,16 +36,27 @@ export const SettingsPanel = memo(() => {
   const handlePlayersName = useCallback((value: string, i: string) => {
     setPlayersName((playersName) => {
       const index = +i;
-      const newPlayersName: Player[] = [...playersName];
-      newPlayersName[index - 1] = {
-        ...newPlayersName[index],
+      const updatedPlayersName = [...playersName];
+      for (let j = updatedPlayersName.length; j < index; j++) {
+        updatedPlayersName.push({
+          name: '',
+          color: colors[j],
+          position: 0,
+          cups: 0,
+          isActive: false,
+          id: j - 1,
+        });
+      }
+      updatedPlayersName[index - 1] = {
+        ...updatedPlayersName[index - 1],
         name: value,
         color: colors[index - 1],
         position: 0,
         cups: 0,
         isActive: false,
+        id: index - 1,
       };
-      return newPlayersName;
+      return updatedPlayersName;
     });
   }, []);
 
@@ -97,10 +108,7 @@ export const SettingsPanel = memo(() => {
     index > 8 ? `${index + 1}` : `${'0' + (index + 1)}`
   );
 
-  const nameChecker = playersName.every((player: PlayerOrEmptyString) => {
-    if (typeof player === 'string') {
-      return false;
-    }
+  const nameChecker = playersName.every((player: Player) => {
     return (
       player?.name.trim() !== '' &&
       playersName.length === +numberOfPlayers &&
@@ -109,7 +117,7 @@ export const SettingsPanel = memo(() => {
   });
 
   return (
-    <div className={cls.SettingsPanel}>
+    <>
       {!gameStarted ? (
         <Button onClick={handleModal} title='Задать начальные настройки'>
           <span>Новая игра</span>
@@ -180,6 +188,6 @@ export const SettingsPanel = memo(() => {
           </div>
         </>
       </Modal>
-    </div>
+    </>
   );
 });

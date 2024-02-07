@@ -13,3 +13,8 @@
 .btnStart {
     margin-top: 8px;
 }
+
+.button:disabled {
+    cursor: not-allowed;
+}
+
