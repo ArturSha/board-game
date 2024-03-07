@@ -180,7 +180,7 @@ export const SettingsPanel = memo(() => {
             </label>
             <Button
               disabled={!nameChecker}
-              classname='btnStart'
+              className='btnStart'
               onClick={handleStartBtn}
             >
               Начать игру

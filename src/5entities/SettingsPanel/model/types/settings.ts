@@ -5,6 +5,7 @@ export interface SettingsState {
   die: DieOption;
   players: Player[];
   started: boolean;
+  isCellModalOpen: boolean;
 }
 
 export interface Player {

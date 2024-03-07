@@ -5,3 +5,4 @@ export { getNumbOfPlayers } from './model/selectors/getNumbOfPlayers/getNumbOfPl
 export { getDieOption } from './model/selectors/getDieOption/getDieOption';
 export { getPlayers } from './model/selectors/getPlayers/getPlayers';
 export { getStarted } from './model/selectors/getStarted/getStarted';
+export { getIsCellModalOpen } from './model/selectors/getIsCellModalOpen/getIsCellModalOpen';

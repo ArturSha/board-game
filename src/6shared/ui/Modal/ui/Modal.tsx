@@ -4,7 +4,7 @@ import cls from './Modal.module.scss';
 
 interface ModalTypes {
   active: boolean;
-  setActive: (arg: boolean) => void;
+  setActive?: (arg: boolean) => void;
   children: ReactNode;
 }
 
@@ -12,7 +12,7 @@ export const Modal = memo((props: ModalTypes) => {
   const { active, setActive, children } = props;
 
   const handleClose = useCallback(() => {
-    setActive(false);
+    setActive?.(false);
   }, [setActive]);
 
   const handleKeyDown = useCallback(

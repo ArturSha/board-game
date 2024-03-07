@@ -1,12 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { SettingsState, DieOption, Player } from '../..';
+// import { cellRules } from 'src/6shared/const';
 
 const initialState: SettingsState = {
   numberOfPlayers: '4',
   die: 'manual',
   players: [],
   started: false,
+  isCellModalOpen: false,
 };
 
 export const settingsSlice = createSlice({
@@ -34,6 +36,9 @@ export const settingsSlice = createSlice({
       state.started = false;
       state.players = [];
     },
+    closeCellModal: (state) => {
+      state.isCellModalOpen = false;
+    },
     setPosition: (state, action: PayloadAction<Array<Player>>) => {
       const updatedPlayer = action.payload[0];
       const currentPlayerIndex = state.players.findIndex(
@@ -57,6 +62,10 @@ export const settingsSlice = createSlice({
         }
         return player;
       });
+      state.isCellModalOpen = true;
+      // state.players = cellRules[
+      //   state.players[currentPlayerIndex].position
+      // ].actionFn(state.players);
     },
   },
 });
