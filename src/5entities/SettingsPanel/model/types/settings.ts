@@ -15,4 +15,6 @@ export interface Player {
   cups: number;
   isActive: boolean;
   id: number;
+  skipRound: boolean;
+  quit: boolean;
 }
