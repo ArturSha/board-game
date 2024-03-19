@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import type { SettingsState, DieOption, Player } from '../..';
-// import { cellRules } from 'src/6shared/const';
 
 const initialState: SettingsState = {
   numberOfPlayers: '4',
@@ -24,9 +23,25 @@ export const settingsSlice = createSlice({
     setPlayers: (state, action: PayloadAction<Array<Player>>) => {
       const newPlayer = action.payload.map((el, i) => {
         if (i === 0) {
-          return { ...el, isActive: true, position: 0, name: el.name.trim() };
+          return {
+            ...el,
+            isActive: true,
+            position: 0,
+            name: el.name.trim(),
+            cups: 1,
+            skipRound: false,
+            quit: false,
+          };
         }
-        return { ...el, isActive: false, position: 0, name: el.name.trim() };
+        return {
+          ...el,
+          isActive: false,
+          position: 0,
+          name: el.name.trim(),
+          cups: 1,
+          skipRound: false,
+          quit: false,
+        };
       });
       state.players = newPlayer;
 
@@ -39,33 +54,51 @@ export const settingsSlice = createSlice({
     closeCellModal: (state) => {
       state.isCellModalOpen = false;
     },
+    setActivePlayer: (state) => {
+      const currentActivePlayerIndex = state.players.findIndex(
+        (player) => player.isActive === true
+      );
+
+      let nextPlayerIndex =
+        currentActivePlayerIndex + 1 >= state.players.length
+          ? 0
+          : currentActivePlayerIndex + 1;
+
+      let skipRoundCount = 0;
+      while (skipRoundCount < state.players.length) {
+        if (state.players[nextPlayerIndex].skipRound === false) {
+          break;
+        }
+        state.players[nextPlayerIndex].skipRound = false;
+        skipRoundCount++;
+        nextPlayerIndex =
+          nextPlayerIndex + 1 >= state.players.length ? 0 : nextPlayerIndex + 1;
+      }
+
+      state.players = state.players.map((player, index) => ({
+        ...player,
+        isActive: index === nextPlayerIndex,
+      }));
+    },
     setPosition: (state, action: PayloadAction<Array<Player>>) => {
       const updatedPlayer = action.payload[0];
       const currentPlayerIndex = state.players.findIndex(
         (player) => player.id === updatedPlayer.id
       );
 
-      const nextPlayerIndex =
-        currentPlayerIndex + 1 >= state.players.length
-          ? 0
-          : currentPlayerIndex + 1;
-
       state.players = state.players.map((player, index) => {
-        if (index === nextPlayerIndex) {
-          return { ...player, isActive: true };
-        } else if (index === currentPlayerIndex) {
+        if (index === currentPlayerIndex) {
           return {
             ...player,
-            isActive: false,
-            position: updatedPlayer.position,
+            position: updatedPlayer.position > 30 ? 30 : updatedPlayer.position,
           };
         }
         return player;
       });
       state.isCellModalOpen = true;
-      // state.players = cellRules[
-      //   state.players[currentPlayerIndex].position
-      // ].actionFn(state.players);
+    },
+    setUpdatedPlayers: (state, action: PayloadAction<Array<Player>>) => {
+      state.players = action.payload;
     },
   },
 });

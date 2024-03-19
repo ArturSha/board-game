@@ -25,6 +25,8 @@ export const SettingsPanel = memo(() => {
       cups: 0,
       isActive: false,
       id: 0,
+      skipRound: false,
+      quit: false,
     },
   ]);
   const numberOfPlayers = useAppSelector(getNumbOfPlayers);
@@ -45,6 +47,8 @@ export const SettingsPanel = memo(() => {
           cups: 0,
           isActive: false,
           id: j - 1,
+          skipRound: false,
+          quit: false,
         });
       }
       updatedPlayersName[index - 1] = {
@@ -55,6 +59,8 @@ export const SettingsPanel = memo(() => {
         cups: 0,
         isActive: false,
         id: index - 1,
+        skipRound: false,
+        quit: false,
       };
       return updatedPlayersName;
     });
@@ -80,9 +86,9 @@ export const SettingsPanel = memo(() => {
   const handleOnBlur = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
-      const isValid = Number(value) > 2;
+      const isValid = Number(value) > 3;
       if (!isValid) {
-        dispatch(settingsActions.setNumberOfPlayers('2'));
+        dispatch(settingsActions.setNumberOfPlayers('3'));
       }
     },
     [dispatch]
@@ -138,7 +144,7 @@ export const SettingsPanel = memo(() => {
               value={numberOfPlayers}
               title='Максимум 16 игроков'
               max={16}
-              min={2}
+              min={3}
               step={1}
               type='number'
               placeholder='Кол-во игроков'
@@ -179,7 +185,7 @@ export const SettingsPanel = memo(() => {
               />
             </label>
             <Button
-              disabled={!nameChecker}
+              disabled={!nameChecker || playersName.length === 0}
               className='btnStart'
               onClick={handleStartBtn}
             >

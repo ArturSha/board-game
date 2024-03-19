@@ -1,27 +1,87 @@
-import { memo, useCallback } from 'react';
-import { settingsActions } from 'src/5entities/SettingsPanel';
-import { getIsCellModalOpen } from 'src/5entities/SettingsPanel/model/selectors/getIsCellModalOpen/getIsCellModalOpen';
-import { useAppDispatch } from 'src/6shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { memo } from 'react';
+import { getIsCellModalOpen, getPlayers } from 'src/5entities/SettingsPanel';
 import { useAppSelector } from 'src/6shared/lib/hooks/useAppSelector/useAppSelector';
-import { Button } from 'src/6shared/ui/Button';
-import { Modal } from 'src/6shared/ui/Modal/ui/Modal';
+import {
+  CheckboxCellModal,
+  InputCellModal,
+  RadioCellModal,
+  SimpleCellModal,
+  TwoOptionsCellModal,
+} from 'src/5entities/CellModals';
 
 export const CellModal = memo(() => {
   const isCellModalOpen = useAppSelector(getIsCellModalOpen);
-  const dispatch = useAppDispatch();
-  const handleCloseModal = useCallback(
-    () => dispatch(settingsActions.closeCellModal()),
-    [dispatch]
+  const players = useAppSelector(getPlayers);
+  const activePlayerIndex = players.findIndex(
+    (player) => player.isActive === true
   );
+  const currentActivePlayerPosition = players[activePlayerIndex]?.position;
 
-  return isCellModalOpen ? (
-    <Modal active={isCellModalOpen}>
-      <div style={{ background: 'red' }}>
-        test test cellmodaltest test cellmodaltest test cellmodaltest test
-        cellmodaltest test cellmodaltest test cellmodaltest test cellmodaltest
-        test cellmodaltest test cellmodal
-      </div>
-      <Button onClick={handleCloseModal}>Next</Button>
-    </Modal>
-  ) : null;
+  switch (currentActivePlayerPosition) {
+    case 1:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 2:
+      return <RadioCellModal isCellModalOpen={isCellModalOpen} />;
+    case 3:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 4:
+      return <RadioCellModal isCellModalOpen={isCellModalOpen} />;
+    case 5:
+      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+    case 6:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 7:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 8:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 9:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 10:
+      return <RadioCellModal isCellModalOpen={isCellModalOpen} />;
+    case 11:
+      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+    case 12:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 13:
+      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+    case 14:
+      return <TwoOptionsCellModal isCellModalOpen={isCellModalOpen} />;
+    case 15:
+      return <InputCellModal isCellModalOpen={isCellModalOpen} />;
+    case 16:
+      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+    case 17:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 18:
+      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+    case 19:
+      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+    case 20:
+      return <RadioCellModal isCellModalOpen={isCellModalOpen} />;
+    case 21:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 22:
+      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+    case 23:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 24:
+      return <TwoOptionsCellModal isCellModalOpen={isCellModalOpen} />;
+    case 25:
+      return <InputCellModal isCellModalOpen={isCellModalOpen} />;
+    case 26:
+      return <TwoOptionsCellModal isCellModalOpen={isCellModalOpen} />;
+    case 27:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 28:
+      return <RadioCellModal isCellModalOpen={isCellModalOpen} />;
+    case 29:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    case 30:
+      return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
+    default:
+      null;
+      break;
+  }
+
+  return;
 });
