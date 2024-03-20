@@ -82,6 +82,4 @@ export const CellModal = memo(() => {
       null;
       break;
   }
-
-  return;
 });

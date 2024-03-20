@@ -18,11 +18,11 @@ type CellRulesType = Record<number, CellRule>;
 export const cellRules: CellRulesType = {
   0: {
     rule: 'GET READY Перед началом игры все игроки выпивают',
-    img: '/src/6shared/assets/square-zero.jpg',
+    img: new URL('/public/square-zero.jpg', import.meta.url).href,
   },
   1: {
     rule: 'Все игроки пьют',
-    img: '/src/6shared/assets/square1.webp',
+    img: new URL('/public/square1.webp.jpg', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player) => ({
         ...player,
@@ -32,7 +32,7 @@ export const cellRules: CellRulesType = {
   },
   2: {
     rule: 'Выбери того, кто будет пить',
-    img: '/src/6shared/assets/square2.jpg',
+    img: new URL('/public/square2.jpg', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (player.id === selected) {
@@ -47,7 +47,7 @@ export const cellRules: CellRulesType = {
   },
   3: {
     rule: 'Тебе повезло, выпей сам',
-    img: '/src/6shared/assets/square3.jpg',
+    img: new URL('/public/square3.jpg', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === true) {
@@ -62,7 +62,7 @@ export const cellRules: CellRulesType = {
   },
   4: {
     rule: 'Игрок слева от тебя пьет',
-    img: '/src/6shared/assets/square4.png',
+    img: new URL('/public/square4.png', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (player.id === selected) {
@@ -77,7 +77,7 @@ export const cellRules: CellRulesType = {
   },
   5: {
     rule: 'Укажи х2, кто будет пить',
-    img: '/src/6shared/assets/square5.webp',
+    img: new URL('/public/square5.webp', import.meta.url).href,
     minSelected: 2,
     maxSelected: 2,
     cellFn: (players, selected) => {
@@ -94,7 +94,7 @@ export const cellRules: CellRulesType = {
   },
   6: {
     rule: 'Все кроме тебя пьют',
-    img: '/src/6shared/assets/square6.webp',
+    img: new URL('/public/square6.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === false) {
@@ -109,7 +109,7 @@ export const cellRules: CellRulesType = {
   },
   7: {
     rule: 'Пьешь столько, сколько у тебя ушей',
-    img: '/src/6shared/assets/square7.webp',
+    img: new URL('/public/square7.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === true) {
@@ -124,11 +124,11 @@ export const cellRules: CellRulesType = {
   },
   8: {
     rule: 'Ничего не делаешь',
-    img: '/src/6shared/assets/square8.webp',
+    img: new URL('/public/square8.webp', import.meta.url).href,
   },
   9: {
     rule: 'Выпей и вернись на х7 шагов',
-    img: '/src/6shared/assets/square9.webp',
+    img: new URL('/public/square9.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === true) {
@@ -144,7 +144,7 @@ export const cellRules: CellRulesType = {
   },
   10: {
     rule: 'Самый старший игрок пьет',
-    img: '/src/6shared/assets/square10.webp',
+    img: new URL('/public/square10.webp', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (player.id === selected) {
@@ -159,7 +159,7 @@ export const cellRules: CellRulesType = {
   },
   11: {
     rule: 'Все девушки пьют',
-    img: '/src/6shared/assets/square11.webp',
+    img: new URL('/public/square11.webp', import.meta.url).href,
     minSelected: 0,
     maxSelected: 16,
     cellFn: (players, selected) => {
@@ -176,7 +176,7 @@ export const cellRules: CellRulesType = {
   },
   12: {
     rule: 'Все возвращаются на шаг назад и выпивают',
-    img: '/src/6shared/assets/square12.webp',
+    img: new URL('/public/square12.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player) => ({
         ...player,
@@ -187,7 +187,7 @@ export const cellRules: CellRulesType = {
   },
   13: {
     rule: 'Пьют те, у кого нет девушки/парня',
-    img: '/src/6shared/assets/square13.webp',
+    img: new URL('/public/square13.webp', import.meta.url).href,
     minSelected: 0,
     maxSelected: 16,
     cellFn: (players, selected) => {
@@ -206,7 +206,7 @@ export const cellRules: CellRulesType = {
     rule: 'Выпей х3 или возвращайся на клетку №8',
     optionOne: 'Выпить',
     optionTwo: 'Вернуться назад',
-    img: '/src/6shared/assets/square14.webp',
+    img: new URL('/public/square14.webp', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (selected === 1 && player.isActive === true) {
@@ -227,7 +227,7 @@ export const cellRules: CellRulesType = {
   },
   15: {
     rule: 'Кинь кубик и выпей сколько выпадет',
-    img: '/src/6shared/assets/square15.webp',
+    img: new URL('/public/square15.webp', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (player.isActive === true && typeof selected === 'number') {
@@ -242,7 +242,7 @@ export const cellRules: CellRulesType = {
   },
   16: {
     rule: 'Укажи х3, кто будет пить',
-    img: '/src/6shared/assets/square16.webp',
+    img: new URL('/public/square16.webp', import.meta.url).href,
     minSelected: 3,
     maxSelected: 3,
     cellFn: (players, selected) => {
@@ -259,7 +259,7 @@ export const cellRules: CellRulesType = {
   },
   17: {
     rule: 'Пьют игроки, которые опережают тебя',
-    img: '/src/6shared/assets/square17.webp',
+    img: new URL('/public/square17.webp', import.meta.url).href,
     cellFn: (players) => {
       const leadersId: number[] = [];
       for (let i = 0; i < players.length; i++) {
@@ -275,7 +275,7 @@ export const cellRules: CellRulesType = {
   },
   18: {
     rule: 'Все парни пьют',
-    img: '/src/6shared/assets/square18.webp',
+    img: new URL('/public/square18.webp', import.meta.url).href,
     minSelected: 0,
     maxSelected: 16,
     cellFn: (players, selected) => {
@@ -292,7 +292,7 @@ export const cellRules: CellRulesType = {
   },
   19: {
     rule: 'Пьют игроки, у которых черные носки',
-    img: '/src/6shared/assets/square19.webp',
+    img: new URL('/public/square19.webp', import.meta.url).href,
     minSelected: 0,
     maxSelected: 16,
     cellFn: (players, selected) => {
@@ -309,7 +309,7 @@ export const cellRules: CellRulesType = {
   },
   20: {
     rule: 'Девушка, которую ты указал, пьет х3',
-    img: '/src/6shared/assets/square20.webp',
+    img: new URL('/public/square20.webp', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (player.id === selected) {
@@ -324,7 +324,7 @@ export const cellRules: CellRulesType = {
   },
   21: {
     rule: 'Назад на х9 шагов',
-    img: '/src/6shared/assets/square21.webp',
+    img: new URL('/public/square21.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === true) {
@@ -339,7 +339,7 @@ export const cellRules: CellRulesType = {
   },
   22: {
     rule: 'Все кидают кубик, у кого 6 - возвращаются НА СТАРТ',
-    img: '/src/6shared/assets/square22.webp',
+    img: new URL('/public/square22.webp', import.meta.url).href,
     minSelected: 0,
     maxSelected: 16,
     cellFn: (players, selected) => {
@@ -356,7 +356,7 @@ export const cellRules: CellRulesType = {
   },
   23: {
     rule: 'Игрок, который ближе всего к финишу, пьет',
-    img: '/src/6shared/assets/square23.webp',
+    img: new URL('/public/square23.webp', import.meta.url).href,
     cellFn: (players) => {
       const highestPosition = Math.max(
         ...players.map((player) => player.position)
@@ -381,7 +381,7 @@ export const cellRules: CellRulesType = {
   },
   24: {
     rule: 'Кинь монетку, орел - ты пьешь, решка - все остальные',
-    img: '/src/6shared/assets/square24.webp',
+    img: new URL('/public/square24.webp', import.meta.url).href,
     optionOne: 'Орел',
     optionTwo: 'Решка',
     cellFn: (players, selected) => {
@@ -404,7 +404,7 @@ export const cellRules: CellRulesType = {
   },
   25: {
     rule: 'Выпей, кинь кубик и вернись на столько шагов назад, сколько выпадет',
-    img: '/src/6shared/assets/square25.webp',
+    img: new URL('/public/square25.webp', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (player.isActive === true && typeof selected === 'number') {
@@ -420,7 +420,7 @@ export const cellRules: CellRulesType = {
   },
   26: {
     rule: 'Расскажи шутку или выпей х4  ',
-    img: '/src/6shared/assets/square26.webp',
+    img: new URL('/public/square26.webp', import.meta.url).href,
     optionOne: 'Рассказать шутку',
     optionTwo: 'Выпить х4',
     cellFn: (players, selected) => {
@@ -442,7 +442,7 @@ export const cellRules: CellRulesType = {
   },
   27: {
     rule: 'Пьешь и пропускаешь ход',
-    img: '/src/6shared/assets/square27.webp',
+    img: new URL('/public/square27.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === true) {
@@ -458,7 +458,7 @@ export const cellRules: CellRulesType = {
   },
   28: {
     rule: 'Самый младший игрок пьет',
-    img: '/src/6shared/assets/square28.webp',
+    img: new URL('/public/square28.webp', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
         if (player.id === selected) {
@@ -473,7 +473,7 @@ export const cellRules: CellRulesType = {
   },
   29: {
     rule: 'Выпей х2 и назад на х8 шагов',
-    img: '/src/6shared/assets/square29.webp',
+    img: new URL('/public/square29.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === true) {
@@ -489,7 +489,7 @@ export const cellRules: CellRulesType = {
   },
   30: {
     rule: 'МОЛОДЦОМ! Все пьют с тобой и если ты все еще можешь это читать, то возвращайся НА СТАРТ',
-    img: '/src/6shared/assets/square30.webp',
+    img: new URL('/public/square30.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
         if (player.isActive === true) {
@@ -505,6 +505,6 @@ export const cellRules: CellRulesType = {
   },
   31: {
     rule: 'final',
-    img: '/src/6shared/assets/square31.webp',
+    img: new URL('/public/square31.webp', import.meta.url).href,
   },
 };
