@@ -22,7 +22,7 @@ export const cellRules: CellRulesType = {
   },
   1: {
     rule: 'Все игроки пьют',
-    img: new URL('/public/square1.webp.jpg', import.meta.url).href,
+    img: new URL('/public/square1.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player) => ({
         ...player,
