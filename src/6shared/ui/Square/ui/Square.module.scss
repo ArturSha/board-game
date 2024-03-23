@@ -14,6 +14,10 @@
     overflow: hidden;
 }
 
+.square:has(.final) {
+    padding: 0;
+}
+
 .picture {
     width: 70%;
     height: 70%;
@@ -21,7 +25,8 @@
 
 .final {
     width: 100%;
-    height: 100%;  
+    height: 100%; 
+     
 }
 
 .piece {
