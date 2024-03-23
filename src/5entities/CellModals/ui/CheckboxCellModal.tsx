@@ -57,7 +57,7 @@ export const CheckboxCellModal = memo(
     }, [currentActivePlayerPosition, dispatch, players, playersId]);
 
     return isCellModalOpen ? (
-      <Modal active={isCellModalOpen}>
+      <Modal active={isCellModalOpen} withCloseBtn={false}>
         <div className={cls.container}>
           <h2 className={cls.header}>
             {cellRules[currentActivePlayerPosition].rule}

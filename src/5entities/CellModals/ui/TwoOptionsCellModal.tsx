@@ -39,7 +39,7 @@ export const TwoOptionsCellModal = memo(
     );
 
     return isCellModalOpen ? (
-      <Modal active={isCellModalOpen}>
+      <Modal active={isCellModalOpen} withCloseBtn={false}>
         <div className={cls.container}>
           <h2 className={cls.header}>
             {cellRules[currentActivePlayerPosition].rule}

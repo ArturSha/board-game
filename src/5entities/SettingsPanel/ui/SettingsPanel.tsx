@@ -166,9 +166,10 @@ export const SettingsPanel = memo(() => {
               </label>
             ))}
             <p>Выбери кубик:</p>
-            <label>
+            <label title='В процессе разработки'>
               Виртуальный:
               <Input
+                disabled={true}
                 type='radio'
                 value='virtual'
                 checked={dieOption === 'virtual'}

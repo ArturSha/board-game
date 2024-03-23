@@ -504,7 +504,7 @@ export const cellRules: CellRulesType = {
     },
   },
   31: {
-    rule: 'final',
+    rule: '',
     img: new URL('/public/square31.webp', import.meta.url).href,
   },
 };

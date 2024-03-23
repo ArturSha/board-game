@@ -4,12 +4,13 @@ import cls from './Modal.module.scss';
 
 interface ModalTypes {
   active: boolean;
+  withCloseBtn?: boolean;
   setActive?: (arg: boolean) => void;
   children: ReactNode;
 }
 
 export const Modal = memo((props: ModalTypes) => {
-  const { active, setActive, children } = props;
+  const { active, withCloseBtn = true, setActive, children } = props;
 
   const handleClose = useCallback(() => {
     setActive?.(false);
@@ -45,9 +46,11 @@ export const Modal = memo((props: ModalTypes) => {
             : `${cls.modal__content}`
         }
       >
-        <span onClick={handleClose} className={cls.close__button}>
-          &times;
-        </span>
+        {withCloseBtn && (
+          <span onClick={handleClose} className={cls.close__button}>
+            &times;
+          </span>
+        )}
         {children}
       </div>
     </div>

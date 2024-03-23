@@ -3,7 +3,7 @@ import type { Player } from 'src/5entities/SettingsPanel';
 import cls from './Square.module.scss';
 
 interface SquareProps {
-  order: number;
+  order?: number;
   mission: string;
   bgImage?: string;
   players?: Player[];
@@ -14,10 +14,16 @@ export const Square = memo((props: SquareProps) => {
 
   return (
     <div className={`${cls.square} ${cls[className]}`}>
-      <div className={cls.mission}>
-        <span>{`${order === 0 ? '' : order + '.'} ${mission}`}</span>
-      </div>
-      <img className={cls.picture} src={bgImage} alt='picture' />
+      {order !== 31 && (
+        <div className={cls.mission}>
+          <span>{`${order === 0 ? '' : order + '.'} ${mission}`}</span>
+        </div>
+      )}
+      <img
+        className={order !== 31 ? cls.picture : cls.final}
+        src={bgImage}
+        alt='picture'
+      />
       {players?.map((el, i) => (
         <div
           className={`${cls.piece} ${cls['piecePosition' + i]}`}

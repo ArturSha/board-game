@@ -47,7 +47,7 @@ export const InputCellModal = memo(({ isCellModalOpen }: CellModal1Props) => {
   }, [currentActivePlayerPosition, dispatch, players, dieValue]);
 
   return isCellModalOpen ? (
-    <Modal active={isCellModalOpen}>
+    <Modal active={isCellModalOpen} withCloseBtn={false}>
       <div className={cls.container}>
         <h2 className={cls.header}>
           {cellRules[currentActivePlayerPosition].rule}
