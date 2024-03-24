@@ -46,9 +46,12 @@ export const RadioCellModal = memo(({ isCellModalOpen }: CellModal1Props) => {
   return isCellModalOpen ? (
     <Modal active={isCellModalOpen} withCloseBtn={false}>
       <div className={cls.container}>
-        <h2 className={cls.header}>
-          {cellRules[currentActivePlayerPosition].rule}
-        </h2>
+        <h2
+          className={cls.header}
+          dangerouslySetInnerHTML={{
+            __html: cellRules[currentActivePlayerPosition].rule,
+          }}
+        ></h2>
         <img
           className={cls.image}
           src={cellRules[currentActivePlayerPosition].img}
