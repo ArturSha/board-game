@@ -16,7 +16,10 @@ export const Square = memo((props: SquareProps) => {
     <div className={`${cls.square} ${cls[className]}`}>
       {order !== 31 && (
         <div className={cls.mission}>
-          <span>{`${order === 0 ? '' : order + '.'} ${mission}`}</span>
+          <span>
+            {order === 0 ? '' : order + '.'}{' '}
+            <span dangerouslySetInnerHTML={{ __html: mission }}></span>{' '}
+          </span>
         </div>
       )}
       <img

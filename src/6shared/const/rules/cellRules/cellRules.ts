@@ -76,7 +76,7 @@ export const cellRules: CellRulesType = {
     },
   },
   5: {
-    rule: 'Укажи х2, кто будет пить',
+    rule: 'Укажи <em style="color: red"><strong>х2</strong></em>, кто будет пить',
     img: new URL('/public/square5.webp', import.meta.url).href,
     minSelected: 2,
     maxSelected: 2,
@@ -127,7 +127,7 @@ export const cellRules: CellRulesType = {
     img: new URL('/public/square8.webp', import.meta.url).href,
   },
   9: {
-    rule: 'Выпей и вернись на х7 шагов',
+    rule: 'Выпей и вернись на <em style="color: red"><strong>х7</strong></em> шагов',
     img: new URL('/public/square9.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
@@ -203,7 +203,7 @@ export const cellRules: CellRulesType = {
     },
   },
   14: {
-    rule: 'Выпей х3 или возвращайся на клетку №8',
+    rule: 'Выпей <em style="color: red"><strong>х3</strong></em> или возвращайся на клетку №8',
     optionOne: 'Выпить',
     optionTwo: 'Вернуться назад',
     img: new URL('/public/square14.webp', import.meta.url).href,
@@ -241,7 +241,7 @@ export const cellRules: CellRulesType = {
     },
   },
   16: {
-    rule: 'Укажи х3, кто будет пить',
+    rule: 'Укажи <em style="color: red"><strong>х3</strong></em>, кто будет пить',
     img: new URL('/public/square16.webp', import.meta.url).href,
     minSelected: 3,
     maxSelected: 3,
@@ -308,7 +308,7 @@ export const cellRules: CellRulesType = {
     },
   },
   20: {
-    rule: 'Девушка, которую ты указал, пьет х3',
+    rule: 'Девушка, которую ты указал, пьет <em style="color: red"><strong>х3</strong></em>',
     img: new URL('/public/square20.webp', import.meta.url).href,
     cellFn: (players, selected) => {
       return players.map((player: Player) => {
@@ -323,7 +323,7 @@ export const cellRules: CellRulesType = {
     },
   },
   21: {
-    rule: 'Назад на х9 шагов',
+    rule: 'Назад на <em style="color: red"><strong>х9</strong></em> шагов',
     img: new URL('/public/square21.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
@@ -419,7 +419,7 @@ export const cellRules: CellRulesType = {
     },
   },
   26: {
-    rule: 'Расскажи шутку или выпей х4  ',
+    rule: 'Расскажи шутку или выпей <em style="color: red"><strong>х4</strong></em>',
     img: new URL('/public/square26.webp', import.meta.url).href,
     optionOne: 'Рассказать шутку',
     optionTwo: 'Выпить х4',
@@ -472,7 +472,7 @@ export const cellRules: CellRulesType = {
     },
   },
   29: {
-    rule: 'Выпей х2 и назад на х8 шагов',
+    rule: 'Выпей <em style="color: red"><strong>х2</strong></em> и назад на <em style="color: red"><strong>х8</strong></em> шагов',
     img: new URL('/public/square29.webp', import.meta.url).href,
     cellFn: (players) => {
       return players.map((player: Player) => {
