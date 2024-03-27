@@ -43,11 +43,16 @@ export const GameController = () => {
     [activePlayer]
   );
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleOnCliclBtn();
+  };
+
   return (
     <div className={cls.gameController}>
       <p>{activePlayer[0]?.name}: Твой ход</p>
       {dieType === 'manual' ? (
-        <>
+        <form onSubmit={handleSubmit}>
           <label>
             Введите значение от 1 до 6
             <Input
@@ -63,8 +68,10 @@ export const GameController = () => {
           <Button
             onClick={handleOnCliclBtn}
             disabled={+dieValue > 0 && dieValue ? false : true}
-          />
-        </>
+          >
+            Ввод
+          </Button>
+        </form>
       ) : (
         <Button />
       )}
