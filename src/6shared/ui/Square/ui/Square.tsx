@@ -17,8 +17,8 @@ export const Square = memo((props: SquareProps) => {
       {order !== 31 && (
         <div className={cls.mission}>
           <span>
-            {order === 0 ? '' : order + '.'}{' '}
-            <span dangerouslySetInnerHTML={{ __html: mission }}></span>{' '}
+            {order === 0 ? '' : order + '.'}
+            <span dangerouslySetInnerHTML={{ __html: mission }}></span>
           </span>
         </div>
       )}

@@ -44,7 +44,7 @@ export const TwoOptionsCellModal = memo(
           <h2
             className={cls.header}
             dangerouslySetInnerHTML={{
-              __html: cellRules[currentActivePlayerPosition].rule,
+              __html: cellRules[currentActivePlayerPosition].rule1,
             }}
           ></h2>
           <img

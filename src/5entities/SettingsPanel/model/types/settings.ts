@@ -13,6 +13,7 @@ export interface Player {
   position: number;
   color: string;
   cups: number;
+  shotsHaveToDrink: number;
   isActive: boolean;
   id: number;
   skipRound: boolean;

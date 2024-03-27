@@ -21,7 +21,7 @@ export const GameBoard = memo(() => {
   const renderSquares = () => {
     const squares = [];
     for (let i = 0; i < 32; i++) {
-      const rule = cellRules[i]?.rule || '';
+      const rule = cellRules[i]?.rule1 || '';
       const cellImg = cellRules[i]?.img || '';
       squares.push(
         <Square

@@ -14,6 +14,10 @@
     overflow: hidden;
 }
 
+.mission {
+    position: relative;
+}
+
 .square:has(.final) {
     padding: 0;
 }
