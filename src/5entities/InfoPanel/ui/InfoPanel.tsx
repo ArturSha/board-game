@@ -9,7 +9,6 @@ export const InfoPanel = memo(() => {
   const sortedPlayers = [...players].sort(
     (first, second) => second?.shotsHaveToDrink - first?.shotsHaveToDrink
   );
-  console.log(sortedPlayers);
 
   return (
     <div className={cls.container}>
