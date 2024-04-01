@@ -1,6 +1,10 @@
 import type { ChangeEvent } from 'react';
 import { memo, useCallback, useState } from 'react';
-import { getPlayers, settingsActions } from 'src/5entities/SettingsPanel';
+import {
+  getDieOption,
+  getPlayers,
+  settingsActions,
+} from 'src/5entities/SettingsPanel';
 import { cellRules } from 'src/6shared/const';
 import { useAppDispatch } from 'src/6shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useAppSelector } from 'src/6shared/lib/hooks/useAppSelector/useAppSelector';
@@ -8,6 +12,7 @@ import { Modal } from 'src/6shared/ui/Modal/ui/Modal';
 import { Button } from 'src/6shared/ui/Button';
 import { Input } from 'src/6shared/ui/Input';
 import cls from './CellModal.module.scss';
+import { getRandomNumber } from 'src/6shared/lib/helpers/getRandomNumber';
 
 interface CellModal1Props {
   isCellModalOpen: boolean;
@@ -20,11 +25,17 @@ export const InputCellModal = memo(({ isCellModalOpen }: CellModal1Props) => {
 
   const players = useAppSelector(getPlayers);
 
+  const dieOption = useAppSelector(getDieOption);
+
   const activePlayerIndex = players.findIndex(
     (player) => player.isActive === true
   );
 
   const currentActivePlayerPosition = players[activePlayerIndex]?.position;
+
+  const handleRollDie = useCallback(() => {
+    setDieValue(() => getRandomNumber().toString());
+  }, []);
 
   const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
@@ -44,6 +55,7 @@ export const InputCellModal = memo(({ isCellModalOpen }: CellModal1Props) => {
     }
     dispatch(settingsActions.setActivePlayer());
     dispatch(settingsActions.closeCellModal());
+    setDieValue('');
   }, [currentActivePlayerPosition, dispatch, players, dieValue]);
 
   return isCellModalOpen ? (
@@ -60,16 +72,30 @@ export const InputCellModal = memo(({ isCellModalOpen }: CellModal1Props) => {
           src={cellRules[currentActivePlayerPosition].img}
           alt=''
         />
-        <Input
-          value={dieValue}
-          type='number'
-          min={1}
-          max={6}
-          step={1}
-          title='Введите значение от 1 до 6'
-          onChange={handleInputChange}
-        />
-        <Button disabled={dieValue !== ''} onClick={handleCloseModal}>
+        {dieOption === 'manual' && (
+          <Input
+            value={dieValue}
+            type='number'
+            min={1}
+            max={6}
+            step={1}
+            title='Введите значение от 1 до 6'
+            onChange={handleInputChange}
+          />
+        )}
+        {dieOption === 'virtual' && (
+          <>
+            {' '}
+            <Button disabled={dieValue !== ''} onClick={handleRollDie}>
+              Roll
+            </Button>
+            <p>{dieValue}</p>
+          </>
+        )}
+        <Button
+          disabled={dieValue === '' || +dieValue < 1}
+          onClick={handleCloseModal}
+        >
           Next
         </Button>
       </div>

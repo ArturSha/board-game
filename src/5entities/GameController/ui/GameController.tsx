@@ -2,6 +2,7 @@ import { useAppSelector } from 'src/6shared/lib/hooks/useAppSelector/useAppSelec
 import type { Player } from 'src/5entities/SettingsPanel';
 import {
   getDieOption,
+  getDisabledBtn,
   getPlayers,
   settingsActions,
 } from 'src/5entities/SettingsPanel';
@@ -9,19 +10,21 @@ import { Input } from 'src/6shared/ui/Input';
 import { Button } from 'src/6shared/ui/Button';
 import { useCallback, useState } from 'react';
 import type { ChangeEvent } from 'react';
-import cls from './GameController.module.scss';
 import { useAppDispatch } from 'src/6shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getRandomNumber } from 'src/6shared/lib/helpers/getRandomNumber';
+import cls from './GameController.module.scss';
 
 export const GameController = () => {
   const [dieValue, setDieValue] = useState<string>('');
 
   const dispatch = useAppDispatch();
   const dieType = useAppSelector(getDieOption);
+  const isBtnDisabled = useAppSelector(getDisabledBtn);
   const activePlayer: Player[] = useAppSelector(getPlayers).filter(
     (player) => player.isActive === true
   );
 
-  const handleOnCliclBtn = useCallback(() => {
+  const handleOnClickBtn = useCallback(() => {
     const updatedPlayer = {
       ...activePlayer[0],
       position: activePlayer[0]?.position + +dieValue,
@@ -29,6 +32,16 @@ export const GameController = () => {
     dispatch(settingsActions.setPosition([updatedPlayer]));
     setDieValue('');
   }, [activePlayer, dieValue, dispatch]);
+
+  const handleOnClickAutoBtn = useCallback(() => {
+    const autoDieValue = getRandomNumber();
+    const updatedPlayer = {
+      ...activePlayer[0],
+      position: activePlayer[0]?.position + autoDieValue,
+    };
+    dispatch(settingsActions.setPosition([updatedPlayer]));
+    setDieValue('');
+  }, [activePlayer, dispatch]);
 
   const handleDieValueChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -45,7 +58,7 @@ export const GameController = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleOnCliclBtn();
+    handleOnClickBtn();
   };
 
   return (
@@ -66,14 +79,16 @@ export const GameController = () => {
             />
           </label>
           <Button
-            onClick={handleOnCliclBtn}
+            onClick={handleOnClickBtn}
             disabled={+dieValue > 0 && dieValue ? false : true}
           >
             Ввод
           </Button>
         </form>
       ) : (
-        <Button />
+        <Button disabled={isBtnDisabled} onClick={handleOnClickAutoBtn}>
+          Roll
+        </Button>
       )}
     </div>
   );

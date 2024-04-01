@@ -3,3 +3,4 @@ export { RadioCellModal } from './ui/RadioCellModal';
 export { SimpleCellModal } from './ui/SimpleCellModal';
 export { CheckboxCellModal } from './ui/CheckboxCellModal';
 export { TwoOptionsCellModal } from './ui/TwoOptionsCellModal';
+export { CheckboxAutoCellModal } from './ui/CheckboxAutoCellModal';

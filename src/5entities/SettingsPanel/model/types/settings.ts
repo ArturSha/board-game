@@ -6,6 +6,7 @@ export interface SettingsState {
   players: Player[];
   started: boolean;
   isCellModalOpen: boolean;
+  disabledBtn: boolean;
 }
 
 export interface Player {

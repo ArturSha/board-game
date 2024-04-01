@@ -8,6 +8,7 @@ const initialState: SettingsState = {
   players: [],
   started: false,
   isCellModalOpen: false,
+  disabledBtn: false,
 };
 
 export const settingsSlice = createSlice({
@@ -55,6 +56,7 @@ export const settingsSlice = createSlice({
     },
     closeCellModal: (state) => {
       state.isCellModalOpen = false;
+      state.disabledBtn = false;
     },
     setActivePlayer: (state) => {
       const currentActivePlayerIndex = state.players.findIndex(
@@ -83,6 +85,7 @@ export const settingsSlice = createSlice({
       }));
     },
     setPosition: (state, action: PayloadAction<Array<Player>>) => {
+      state.disabledBtn = true;
       const updatedPlayer = action.payload[0];
       const currentPlayerIndex = state.players.findIndex(
         (player) => player.id === updatedPlayer.id

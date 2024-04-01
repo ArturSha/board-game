@@ -1,17 +1,23 @@
 import { memo } from 'react';
-import { getIsCellModalOpen, getPlayers } from 'src/5entities/SettingsPanel';
-import { useAppSelector } from 'src/6shared/lib/hooks/useAppSelector/useAppSelector';
 import {
+  getDieOption,
+  getIsCellModalOpen,
+  getPlayers,
+} from 'src/5entities/SettingsPanel';
+import {
+  CheckboxAutoCellModal,
   CheckboxCellModal,
   InputCellModal,
   RadioCellModal,
   SimpleCellModal,
   TwoOptionsCellModal,
 } from 'src/5entities/CellModals';
+import { useAppSelector } from 'src/6shared/lib/hooks/useAppSelector/useAppSelector';
 
 export const CellModal = memo(() => {
   const isCellModalOpen = useAppSelector(getIsCellModalOpen);
   const players = useAppSelector(getPlayers);
+  const dieType = useAppSelector(getDieOption);
   const activePlayerIndex = players.findIndex(
     (player) => player.isActive === true
   );
@@ -61,7 +67,11 @@ export const CellModal = memo(() => {
     case 21:
       return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
     case 22:
-      return <CheckboxCellModal isCellModalOpen={isCellModalOpen} />;
+      return dieType === 'manual' ? (
+        <CheckboxCellModal isCellModalOpen={isCellModalOpen} />
+      ) : (
+        <CheckboxAutoCellModal isCellModalOpen={isCellModalOpen} />
+      );
     case 23:
       return <SimpleCellModal isCellModalOpen={isCellModalOpen} />;
     case 24:
