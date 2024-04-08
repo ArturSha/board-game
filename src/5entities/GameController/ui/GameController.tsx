@@ -3,12 +3,13 @@ import type { Player } from 'src/5entities/SettingsPanel';
 import {
   getDieOption,
   getDisabledBtn,
+  getIsCellModalOpen,
   getPlayers,
   settingsActions,
 } from 'src/5entities/SettingsPanel';
 import { Input } from 'src/6shared/ui/Input';
 import { Button } from 'src/6shared/ui/Button';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ChangeEvent } from 'react';
 import { useAppDispatch } from 'src/6shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getRandomNumber } from 'src/6shared/lib/helpers/getRandomNumber';
@@ -18,11 +19,19 @@ export const GameController = () => {
   const [dieValue, setDieValue] = useState<string>('');
 
   const dispatch = useAppDispatch();
+  const isModalOpen = useAppSelector(getIsCellModalOpen);
   const dieType = useAppSelector(getDieOption);
   const isBtnDisabled = useAppSelector(getDisabledBtn);
   const activePlayer: Player[] = useAppSelector(getPlayers).filter(
     (player) => player.isActive === true
   );
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (!isModalOpen) {
+      inputRef?.current?.focus();
+    }
+  }, [isModalOpen]);
 
   const handleOnClickBtn = useCallback(() => {
     const updatedPlayer = {
@@ -69,6 +78,7 @@ export const GameController = () => {
           <label>
             Введите значение от 1 до 6
             <Input
+              inputRef={inputRef}
               value={dieValue}
               min={1}
               max={6}
